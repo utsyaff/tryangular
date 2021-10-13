@@ -1,0 +1,31 @@
+<p>list-user works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Npm</th>
+        <th scope="col">nama</th>
+        <th scope="col">matric</th>
+        <th scope="col">jurusan</th>
+        <th scope="col">fakultas</th>
+        <th scope="col">agama</th>
+        <th scope="col">alamat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of Users; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ user.npm }}</td>
+        <td>{{ user.nama }}</td>
+        <td>{{ user.matric }}</td>
+        <td>{{ user.jurusan }}</td>
+        <td>{{ user.fakultas }}</td>
+        <td>{{ user.agama }}</td>
+        <td>{{ user.alamat }}</td>
+        <td>
+          <span (click)="removeUser(user)" class="text-danger">Delete</span> &nbsp;
+          <span routerLink="/update-user/{{user.id}}" class="text-primary">Edit</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
