@@ -18,13 +18,12 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
-import {
-  AgmCoreModule
-} from '@agm/core';
+import { AgmCoreModule } from '@agm/core';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
@@ -41,14 +40,15 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule, AngularFirestoreModule
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
 
   ],
-  providers: [],
+  providers: [AngularFireModule, AngularFirestoreModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
